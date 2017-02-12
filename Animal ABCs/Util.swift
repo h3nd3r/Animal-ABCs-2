@@ -17,6 +17,14 @@ class Util: UIView {
     var colors = ["006633","FF0000","FF9900","FF33FF","669900","3333CC","FFFF33","9933FF","FF3300","33FFCC","33CC00","FFCC00","FF3399","33CCFF","FFFF00","FFCCFF","33FF00","6633FF","FF99CC","CCFF99","FF9900","6699FF","FF0000","FFFF99","CC33FF","FFFF00"]
     var players = [AVAudioPlayer?]()
     var sounds = ["a-alligator","b-bear","c-cat","d-dog","e-elephant","f-flamingo","g-giraffe","h-horse","i-iguana","j-jaguar","k-kangaroo","l-llama","m-monkey","n-numbat","o-owl","p-pig","q-quail","r-rabbit","s-snake","t-tiger","u-urial","v-vulture","w-walrus","x-xenops","y-yak","z-zebra"]
+
+    static let sharedInstance: Util = {
+        let instance = Util()
+        
+        // setup code
+        
+        return instance
+    }()
     
     func stop(count: Int) {
         if (players.count != 0) {

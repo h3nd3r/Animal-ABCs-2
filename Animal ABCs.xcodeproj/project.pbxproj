@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		1A067FE11E50D294003C63BC /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A067FE01E50D294003C63BC /* CollectionViewController.swift */; };
+		1A067FE31E5109B6003C63BC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A067FE21E5109B6003C63BC /* CollectionViewCell.swift */; };
+		1A067FE61E5113A7003C63BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A067FE41E5113A7003C63BC /* Main.storyboard */; };
 		1AB774311E2027FE00BE2FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB774301E2027FE00BE2FC4 /* AppDelegate.swift */; };
 		1AB774331E2027FE00BE2FC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB774321E2027FE00BE2FC4 /* ViewController.swift */; };
-		1AB774361E2027FE00BE2FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AB774341E2027FE00BE2FC4 /* Main.storyboard */; };
 		1AB774381E2027FE00BE2FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AB774371E2027FE00BE2FC4 /* Assets.xcassets */; };
 		1AB7743B1E2027FE00BE2FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AB774391E2027FE00BE2FC4 /* LaunchScreen.storyboard */; };
-		1AB774431E20318400BE2FC4 /* SlideColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB774421E20318400BE2FC4 /* SlideColor.swift */; };
 		1AD460B41E4EDBD500A2038D /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD460B31E4EDBD500A2038D /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A067FE01E50D294003C63BC /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		1A067FE21E5109B6003C63BC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		1A067FE51E5113A7003C63BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Animal ABCs/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		1AB7742D1E2027FE00BE2FC4 /* Animal ABCs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animal ABCs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB774301E2027FE00BE2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AB774321E2027FE00BE2FC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1AB774351E2027FE00BE2FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AB774371E2027FE00BE2FC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AB7743A1E2027FE00BE2FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AB7743C1E2027FE00BE2FC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AB774421E20318400BE2FC4 /* SlideColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideColor.swift; sourceTree = "<group>"; };
 		1AD460B31E4EDBD500A2038D /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,12 +60,12 @@
 		1AB7742F1E2027FE00BE2FC4 /* Animal ABCs */ = {
 			isa = PBXGroup;
 			children = (
+				1A067FE41E5113A7003C63BC /* Main.storyboard */,
 				1AB774301E2027FE00BE2FC4 /* AppDelegate.swift */,
 				1AB774321E2027FE00BE2FC4 /* ViewController.swift */,
+				1A067FE21E5109B6003C63BC /* CollectionViewCell.swift */,
 				1AD460B31E4EDBD500A2038D /* Util.swift */,
-				1AB774341E2027FE00BE2FC4 /* Main.storyboard */,
 				1A067FE01E50D294003C63BC /* CollectionViewController.swift */,
-				1AB774421E20318400BE2FC4 /* SlideColor.swift */,
 				1AB774371E2027FE00BE2FC4 /* Assets.xcassets */,
 				1AB774391E2027FE00BE2FC4 /* LaunchScreen.storyboard */,
 				1AB7743C1E2027FE00BE2FC4 /* Info.plist */,
@@ -133,9 +133,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A067FE61E5113A7003C63BC /* Main.storyboard in Resources */,
 				1AB7743B1E2027FE00BE2FC4 /* LaunchScreen.storyboard in Resources */,
 				1AB774381E2027FE00BE2FC4 /* Assets.xcassets in Resources */,
-				1AB774361E2027FE00BE2FC4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +148,7 @@
 			files = (
 				1AB774331E2027FE00BE2FC4 /* ViewController.swift in Sources */,
 				1AB774311E2027FE00BE2FC4 /* AppDelegate.swift in Sources */,
-				1AB774431E20318400BE2FC4 /* SlideColor.swift in Sources */,
+				1A067FE31E5109B6003C63BC /* CollectionViewCell.swift in Sources */,
 				1AD460B41E4EDBD500A2038D /* Util.swift in Sources */,
 				1A067FE11E50D294003C63BC /* CollectionViewController.swift in Sources */,
 			);
@@ -157,12 +157,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1AB774341E2027FE00BE2FC4 /* Main.storyboard */ = {
+		1A067FE41E5113A7003C63BC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1AB774351E2027FE00BE2FC4 /* Base */,
+				1A067FE51E5113A7003C63BC /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		1AB774391E2027FE00BE2FC4 /* LaunchScreen.storyboard */ = {
@@ -276,7 +277,7 @@
 				DEVELOPMENT_TEAM = BXSQWA9MVY;
 				INFOPLIST_FILE = "Animal ABCs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "xyz.Animal-ABCs";
+				PRODUCT_BUNDLE_IDENTIFIER = "XT96BV967V.Animal-ABCs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -290,7 +291,7 @@
 				DEVELOPMENT_TEAM = BXSQWA9MVY;
 				INFOPLIST_FILE = "Animal ABCs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "xyz.Animal-ABCs";
+				PRODUCT_BUNDLE_IDENTIFIER = "XT96BV967V.Animal-ABCs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

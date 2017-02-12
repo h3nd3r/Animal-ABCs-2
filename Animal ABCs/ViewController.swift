@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     var enableRepeatingAnimation = false
     var count: Int = 0
-    var util: Util = Util()
+//    var util: Util = Util()
     private var slide: Int = 0
     var timer = Timer()
 
@@ -36,7 +36,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+        move()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        print(#function)
         move()
     }
     
@@ -52,22 +58,22 @@ class ViewController: UIViewController {
     
     func move() {
         print("count: \(count)")
-        imageView.image = UIImage(named: util.pictures[count])
-        letterLabel.text = util.letters[count]
-        animalLabel.text = util.animals[count]
-        self.view.backgroundColor = util.colors[count].hexColor
+        imageView.image = UIImage(named: Util.sharedInstance.pictures[count])
+        letterLabel.text = Util.sharedInstance.letters[count]
+        animalLabel.text = Util.sharedInstance.animals[count]
+        self.view.backgroundColor = Util.sharedInstance.colors[count].hexColor
         hideArrows()
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(showArrows), userInfo: nil, repeats: false)
-        util.play(count: count)
+        Util.sharedInstance.play(count: count)
     }
     
     func moveRight() {
         print(#function)
-        util.stop(count: count)
+        Util.sharedInstance.stop(count: count)
         count -= 1
         if (count == -1) {
-            count = util.animals.count - 1
+            count = Util.sharedInstance.animals.count - 1
         }
         move()
     }
@@ -84,16 +90,20 @@ class ViewController: UIViewController {
     
     func moveLeft() {
         print(#function)
-        util.stop(count: count)
+        Util.sharedInstance.stop(count: count)
         count += 1
-        if (count == util.animals.count) {
+        if (count == Util.sharedInstance.animals.count) {
             count = 0
         }
         move()
     }
     
-    @IBAction func pinchGesture(_ sender: Any) {
+    @IBAction func pinchGesture(_ sender: UIGestureRecognizer) {
         print(#function)
+        if sender.state == UIGestureRecognizerState.ended {
+            Util.sharedInstance.stop(count: count)    
+            performSegue(withIdentifier: "segue", sender: nil)
+        }
     }
     
     @IBAction func letterTap(_ sender: Any) {
