@@ -211,6 +211,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="wA9-mO-u6B" id="3Tm-Co-BJV"/>
+                        <outlet property="flowLayout" destination="lHV-hE-i0M" id="GCT-Bc-vqy"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segueExpand" id="mEa-8S-h8Z"/>
                     </connections>
                 </viewController>
