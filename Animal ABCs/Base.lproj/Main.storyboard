@@ -61,6 +61,13 @@
                                     <outletCollection property="gestureRecognizers" destination="RRP-HC-FI5" appends="YES" id="JPU-9o-mv8"/>
                                 </connections>
                             </imageView>
+                            <imageView hidden="YES" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dash" translatesAutoresizingMaskIntoConstraints="NO" id="gGt-JS-nTf" userLabel="dash">
+                                <rect key="frame" x="260" y="40" width="83" height="83"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8KS-v7-yD9" appends="YES" id="fUI-gI-7nu"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -70,12 +77,14 @@
                             <constraint firstItem="Aak-9P-AKo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8gk-ax-WK0"/>
                             <constraint firstItem="zhY-ut-mIG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ggy-Je-Ru6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hpq-Uy-KRx" secondAttribute="trailing" id="Jg1-BU-TIW"/>
+                            <constraint firstItem="gGt-JS-nTf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="KRU-ze-Wng"/>
                             <constraint firstItem="6QC-i2-brA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="N6G-UE-62y"/>
                             <constraint firstItem="7Az-q0-XXc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="P3c-C8-0fC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Aak-9P-AKo" secondAttribute="trailing" constant="8" id="YNJ-xf-WH2"/>
                             <constraint firstItem="zhY-ut-mIG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="eJw-ml-VGb"/>
                             <constraint firstItem="hpq-Uy-KRx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="ePU-Xz-dwr"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zhY-ut-mIG" secondAttribute="trailing" constant="16" id="p4i-PS-AEf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gGt-JS-nTf" secondAttribute="trailing" constant="16" id="uJP-zH-cJZ"/>
                             <constraint firstItem="7Az-q0-XXc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vZt-sI-AZI"/>
                             <constraint firstItem="7Az-q0-XXc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="wEn-uB-sUe"/>
                         </constraints>
@@ -87,6 +96,7 @@
                     </view>
                     <connections>
                         <outlet property="animalLabel" destination="hpq-Uy-KRx" id="LKi-oL-xIr"/>
+                        <outlet property="dashImageView" destination="gGt-JS-nTf" id="e6P-EV-Cwn"/>
                         <outlet property="imageView" destination="7Az-q0-XXc" id="2II-fD-2A4"/>
                         <outlet property="leftArrowImageView" destination="6QC-i2-brA" id="vdR-jr-02k"/>
                         <outlet property="letterLabel" destination="zhY-ut-mIG" id="7nE-kE-f6c"/>
@@ -130,6 +140,11 @@
                         <action selector="rightTap:" destination="BYZ-38-t0r" id="5Kr-7q-HuF"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="8KS-v7-yD9">
+                    <connections>
+                        <action selector="tapMinimize:" destination="BYZ-38-t0r" id="tiJ-04-e3x"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="97" y="136"/>
         </scene>
@@ -162,15 +177,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zHn-Jl-Dsf">
-                                                    <rect key="frame" x="0.0" y="0.5" width="50" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xmB-8o-Urf">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zHn-Jl-Dsf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="150"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -192,13 +208,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isf-hk-bvk">
-                                <rect key="frame" x="10" y="10" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -222,6 +231,7 @@
     </scenes>
     <resources>
         <image name="a" width="1500" height="1000"/>
+        <image name="dash" width="83" height="83"/>
         <image name="left" width="92" height="142"/>
         <image name="right" width="92" height="142"/>
     </resources>

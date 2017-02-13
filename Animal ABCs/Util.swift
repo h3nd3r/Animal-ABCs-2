@@ -11,13 +11,14 @@ import AVFoundation
 
 class Util: UIView {
 
+    var letter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     var letters = ["Aa","Bb","Cc","Dd","Ee","Ff","Gg","Hh","Ii","Jj","Kk","Ll","Mm","Nn","Oo","Pp","Qq","Rr","Ss","Tt","Uu","Vv","Ww","Xx","Yy","Zz"]
     var animals = ["alligator", "bear", "cat", "dog", "elephant", "flamingo", "giraffe", "horse", "iguana", "jaguar", "kangaroo", "llama", "monkey", "numbat", "owl", "pig", "quail", "rabbit", "snake", "tiger", "urial", "vulture", "walrus", "xenops", "yak", "zebra"]
     var pictures = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     var colors = ["006633","FF0000","FF9900","FF33FF","669900","3333CC","FFFF33","9933FF","FF3300","33FFCC","33CC00","FFCC00","FF3399","33CCFF","FFFF00","FFCCFF","33FF00","6633FF","FF99CC","CCFF99","FF9900","6699FF","FF0000","FFFF99","CC33FF","FFFF00"]
     var players = [AVAudioPlayer?]()
     var sounds = ["a-alligator","b-bear","c-cat","d-dog","e-elephant","f-flamingo","g-giraffe","h-horse","i-iguana","j-jaguar","k-kangaroo","l-llama","m-monkey","n-numbat","o-owl","p-pig","q-quail","r-rabbit","s-snake","t-tiger","u-urial","v-vulture","w-walrus","x-xenops","y-yak","z-zebra"]
-
+    var thumbs = ["as","bs","cs","ds","es","fs","gs","hs","is","js","ks","ls","ms","ns","os","ps","qs","r","s","t","us","vs","ws","xs","ys","zs"]
     static let sharedInstance: Util = {
         let instance = Util()
         

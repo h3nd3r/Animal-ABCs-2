@@ -60,13 +60,13 @@
 		1AB7742F1E2027FE00BE2FC4 /* Animal ABCs */ = {
 			isa = PBXGroup;
 			children = (
-				1A067FE41E5113A7003C63BC /* Main.storyboard */,
 				1AB774301E2027FE00BE2FC4 /* AppDelegate.swift */,
 				1AB774321E2027FE00BE2FC4 /* ViewController.swift */,
 				1A067FE21E5109B6003C63BC /* CollectionViewCell.swift */,
 				1AD460B31E4EDBD500A2038D /* Util.swift */,
 				1A067FE01E50D294003C63BC /* CollectionViewController.swift */,
 				1AB774371E2027FE00BE2FC4 /* Assets.xcassets */,
+				1A067FE41E5113A7003C63BC /* Main.storyboard */,
 				1AB774391E2027FE00BE2FC4 /* LaunchScreen.storyboard */,
 				1AB7743C1E2027FE00BE2FC4 /* Info.plist */,
 			);

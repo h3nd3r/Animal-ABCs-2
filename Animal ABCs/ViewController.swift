@@ -16,10 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var animalLabel: UILabel!
     @IBOutlet weak var leftArrowImageView: UIImageView!
     @IBOutlet weak var rightArrowImageView: UIImageView!
+    @IBOutlet weak var dashImageView: UIImageView!
     
     var enableRepeatingAnimation = false
     var count: Int = 0
-//    var util: Util = Util()
     private var slide: Int = 0
     var timer = Timer()
 
@@ -62,9 +62,9 @@ class ViewController: UIViewController {
         letterLabel.text = Util.sharedInstance.letters[count]
         animalLabel.text = Util.sharedInstance.animals[count]
         self.view.backgroundColor = Util.sharedInstance.colors[count].hexColor
-        hideArrows()
+        hideNav()
         timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(showArrows), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(showNav), userInfo: nil, repeats: false)
         Util.sharedInstance.play(count: count)
     }
     
@@ -98,6 +98,12 @@ class ViewController: UIViewController {
         move()
     }
     
+    @IBAction func tapMinimize(_ sender: Any) {
+        print(#function)        
+        Util.sharedInstance.stop(count: count)
+        performSegue(withIdentifier: "segue", sender: nil)
+    }
+    
     @IBAction func pinchGesture(_ sender: UIGestureRecognizer) {
         print(#function)
         if sender.state == UIGestureRecognizerState.ended {
@@ -114,35 +120,40 @@ class ViewController: UIViewController {
         print(#function)
     }
     
-    func animateArrows() {
+    func animateNav() {
         self.leftArrowImageView.alpha = 0.1
         self.rightArrowImageView.alpha = 0.1
-
+        self.dashImageView.alpha = 0.1
+        
         UIView.animate(withDuration: 1.0, delay: 0.0, options: [.allowUserInteraction], animations: {
             self.leftArrowImageView.alpha = 0.75
             self.rightArrowImageView.alpha = 0.75
+            self.dashImageView.alpha = 0.75
         }, completion: {finished in
             UIView.animate(withDuration: 1.0, delay: 2.0, options: [.allowUserInteraction], animations: {
                 self.leftArrowImageView.alpha = 0.1
                 self.rightArrowImageView.alpha = 0.1
+                self.dashImageView.alpha = 0.1
             }, completion: {finished in
                 if ( self.enableRepeatingAnimation ) {
-                    self.perform(#selector(self.animateArrows), with: self.view, afterDelay: 1.0)
+                    self.perform(#selector(self.animateNav), with: self.view, afterDelay: 1.0)
                 }
             })
         })
     }
-    func hideArrows() {
+    func hideNav() {
         leftArrowImageView.isHidden = true
         rightArrowImageView.isHidden = true
+        dashImageView.isHidden = true
         enableRepeatingAnimation = false
     }
     
-    func showArrows() {
+    func showNav() {
         leftArrowImageView.isHidden = false
         rightArrowImageView.isHidden = false
+        dashImageView.isHidden = false
         enableRepeatingAnimation = true
-        animateArrows()
+        animateNav()
     }
     
     override func didReceiveMemoryWarning() {

@@ -25,6 +25,12 @@ class CollectionViewController: UIViewController {
         
     }
     
+    override var shouldAutorotate: Bool {
+        print(#function)
+        flowLayout.invalidateLayout()
+        return true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,7 +61,6 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
         let height = UIScreen.main.bounds.size.height
         
         return CGSize(width: (width - width/10)/3, height: (height - height/10)/3)
-        //return CGSize(width: 100, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -87,8 +92,8 @@ extension CollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
         cell.backgroundColor = Util.sharedInstance.colors[indexPath.row].hexColor
-        cell.label.text = Util.sharedInstance.letters[indexPath.row]
-        //cell.image.image =  UIImage(named: Util.sharedInstance.pictures[indexPath.row])
+        cell.label.text = Util.sharedInstance.letter[indexPath.row]
+        cell.image.image =  UIImage(named: Util.sharedInstance.thumbs[indexPath.row])
         
         return cell
     }
