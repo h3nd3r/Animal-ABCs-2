@@ -11,39 +11,33 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var letterLabel: UILabel!
-    @IBOutlet weak var animalLabel: UILabel!
+    @IBOutlet weak var slideView: UIView!
     @IBOutlet weak var leftArrowImageView: UIImageView!
     @IBOutlet weak var rightArrowImageView: UIImageView!
     @IBOutlet weak var dashImageView: UIImageView!
+    var mySlideView: View!
     
     var enableRepeatingAnimation = false
     var count: Int = 0
     private var slide: Int = 0
     var timer = Timer()
-
-    private struct slide {
-        var image: UIImage!
-        var color: UIColor!
-        var next: Any!
-        var prev: Any!
-        // audio
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        mySlideView = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options:nil)[0] as! View
+        mySlideView.update(count)
+        slideView.addSubview(mySlideView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         print(#function)
-        move()
+        //move()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         print(#function)
-        move()
+        move(withAnimation: false, goingRight:false)
     }
     
 
@@ -62,20 +56,6 @@ class ViewController: UIViewController {
                 toViewController.didMove(toParentViewController: self)
                 toViewController.view.frame = self.view.bounds
         })
-        
-/*
-        containerViewController.transitionFromViewController(
-            fromViewController,
-            toViewController: toViewController,
-            duration: 0.2,
-            options: UIViewAnimationOptions.TransitionCrossDissolve,
-            nil,
-            completion: { finished in
-                fromViewController.removeFromParentViewController()
-                toViewController.didMoveToParentViewController(containerViewController)
-                toViewController.view.frame = containerViewController.view.bounds
-        })
-*/
     }
     
     @IBAction func rightTap(_ sender: Any) {
@@ -88,17 +68,39 @@ class ViewController: UIViewController {
         moveRight()
     }
     
-    func move() {
-        //animateSegue()
+    func move(withAnimation animate:Bool, goingRight right:Bool) {
         print("count: \(count)")
-        imageView.image = UIImage(named: Util.sharedInstance.pictures[count])
-        letterLabel.text = Util.sharedInstance.letters[count]
-        animalLabel.text = Util.sharedInstance.animals[count]
-        self.view.backgroundColor = Util.sharedInstance.colors[count].hexColor
-        hideNav()
-        timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(showNav), userInfo: nil, repeats: false)
-        Util.sharedInstance.play(count: count)
+
+        if (animate) {
+            let tmp = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options:nil)[0] as! View
+            tmp.update(count)
+            tmp.alpha = 0
+            tmp.frame = slideView.frame
+            slideView.addSubview(tmp)
+            
+            hideNav()
+            timer.invalidate()
+
+            let travelDistance:CGFloat = slideView.bounds.size.width + 16
+            let travel:CGAffineTransform = CGAffineTransform(translationX: right ? travelDistance : -travelDistance, y: 0)
+            tmp.transform = travel.inverted()
+            
+            UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: [], animations: {
+                self.mySlideView.alpha = 0.0
+                self.mySlideView.transform = travel
+                tmp.alpha = 1.0
+                tmp.transform = CGAffineTransform.identity
+                
+            }, completion: { (finished: Bool) in
+                self.mySlideView.removeFromSuperview()
+                self.mySlideView = tmp
+                Util.sharedInstance.play(count: self.count)
+                self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.showNav), userInfo: nil, repeats: false)
+            })
+        } else {
+            Util.sharedInstance.play(count: self.count)
+            timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(showNav), userInfo: nil, repeats: false)
+        }
     }
     
     func moveRight() {
@@ -108,7 +110,7 @@ class ViewController: UIViewController {
         if (count == -1) {
             count = Util.sharedInstance.animals.count - 1
         }
-        move()
+        move(withAnimation: true, goingRight: true)
     }
     
     @IBAction func leftTap(_ sender: Any) {
@@ -128,7 +130,7 @@ class ViewController: UIViewController {
         if (count == Util.sharedInstance.animals.count) {
             count = 0
         }
-        move()
+        move(withAnimation: true, goingRight: false)
     }
     
     @IBAction func tapMinimize(_ sender: Any) {
