@@ -10,6 +10,7 @@
 		1A067FE11E50D294003C63BC /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A067FE01E50D294003C63BC /* CollectionViewController.swift */; };
 		1A067FE31E5109B6003C63BC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A067FE21E5109B6003C63BC /* CollectionViewCell.swift */; };
 		1A067FE61E5113A7003C63BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A067FE41E5113A7003C63BC /* Main.storyboard */; };
+		1A067FE81E514D11003C63BC /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A067FE71E514D11003C63BC /* ContainerViewController.swift */; };
 		1AB774311E2027FE00BE2FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB774301E2027FE00BE2FC4 /* AppDelegate.swift */; };
 		1AB774331E2027FE00BE2FC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB774321E2027FE00BE2FC4 /* ViewController.swift */; };
 		1AB774381E2027FE00BE2FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AB774371E2027FE00BE2FC4 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		1A067FE01E50D294003C63BC /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		1A067FE21E5109B6003C63BC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		1A067FE51E5113A7003C63BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Animal ABCs/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		1A067FE71E514D11003C63BC /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		1AB7742D1E2027FE00BE2FC4 /* Animal ABCs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animal ABCs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AB774301E2027FE00BE2FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AB774321E2027FE00BE2FC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				1AB774321E2027FE00BE2FC4 /* ViewController.swift */,
 				1A067FE21E5109B6003C63BC /* CollectionViewCell.swift */,
 				1AD460B31E4EDBD500A2038D /* Util.swift */,
+				1A067FE71E514D11003C63BC /* ContainerViewController.swift */,
 				1A067FE01E50D294003C63BC /* CollectionViewController.swift */,
 				1AB774371E2027FE00BE2FC4 /* Assets.xcassets */,
 				1A067FE41E5113A7003C63BC /* Main.storyboard */,
@@ -150,6 +153,7 @@
 				1AB774311E2027FE00BE2FC4 /* AppDelegate.swift in Sources */,
 				1A067FE31E5109B6003C63BC /* CollectionViewCell.swift in Sources */,
 				1AD460B41E4EDBD500A2038D /* Util.swift in Sources */,
+				1A067FE81E514D11003C63BC /* ContainerViewController.swift in Sources */,
 				1A067FE11E50D294003C63BC /* CollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

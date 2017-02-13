@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class Util: UIView {
-
+    
     var letter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     var letters = ["Aa","Bb","Cc","Dd","Ee","Ff","Gg","Hh","Ii","Jj","Kk","Ll","Mm","Nn","Oo","Pp","Qq","Rr","Ss","Tt","Uu","Vv","Ww","Xx","Yy","Zz"]
     var animals = ["alligator", "bear", "cat", "dog", "elephant", "flamingo", "giraffe", "horse", "iguana", "jaguar", "kangaroo", "llama", "monkey", "numbat", "owl", "pig", "quail", "rabbit", "snake", "tiger", "urial", "vulture", "walrus", "xenops", "yak", "zebra"]

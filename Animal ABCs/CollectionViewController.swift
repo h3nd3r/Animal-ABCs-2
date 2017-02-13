@@ -19,15 +19,20 @@ class CollectionViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 10)
+//        flowLayout.minimumLineSpacing = 0
+//        flowLayout.minimumInteritemSpacing = 0
+//        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 10)
         
     }
     
-    override var shouldAutorotate: Bool {
+    override func viewWillLayoutSubviews() {
         print(#function)
         flowLayout.invalidateLayout()
+    }
+    
+    override var shouldAutorotate: Bool {
+//        print(#function)
+//        flowLayout.invalidateLayout()
         return true
     }
     
@@ -36,7 +41,6 @@ class CollectionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
 //    // MARK: - Navigation
 //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,20 +63,25 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
         print(#function)
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height
-        
-        return CGSize(width: (width - width/10)/3, height: (height - height/10)/3)
+        let size =  CGSize(width: (width - width/10)/3, height: (height - height/10)/3)
+        flowLayout.itemSize = size
+        return size
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         print(#function)
-        let tmp = (flowLayout.itemSize.width*3)/6
+        let width = UIScreen.main.bounds.size.width
+        let tmp = (width - flowLayout.itemSize.width*3)/6
+        print("setting insets to: \(tmp)")
         return UIEdgeInsetsMake(tmp, tmp, tmp, tmp)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         print(#function)
-        let tmp = (flowLayout.itemSize.width*3)/6
-        return tmp
+        let width = UIScreen.main.bounds.size.width
+        let space = ((width - flowLayout.itemSize.width*3)/6)*2
+        print("setting line space: \(space)")
+        return space
     }
 }
 

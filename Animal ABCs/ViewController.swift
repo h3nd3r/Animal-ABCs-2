@@ -46,6 +46,38 @@ class ViewController: UIViewController {
         move()
     }
     
+
+    func animateSegue() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let toViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        //self.present(controller, animated: true, completion: nil)
+        self.transition(
+            from: self,
+            to: toViewController,
+            duration: 0.2,
+            options: UIViewAnimationOptions.transitionCrossDissolve,
+            animations: nil,
+            completion: { finished in
+                self.removeFromParentViewController()
+                toViewController.didMove(toParentViewController: self)
+                toViewController.view.frame = self.view.bounds
+        })
+        
+/*
+        containerViewController.transitionFromViewController(
+            fromViewController,
+            toViewController: toViewController,
+            duration: 0.2,
+            options: UIViewAnimationOptions.TransitionCrossDissolve,
+            nil,
+            completion: { finished in
+                fromViewController.removeFromParentViewController()
+                toViewController.didMoveToParentViewController(containerViewController)
+                toViewController.view.frame = containerViewController.view.bounds
+        })
+*/
+    }
+    
     @IBAction func rightTap(_ sender: Any) {
         print(#function)
         moveLeft()
@@ -57,6 +89,7 @@ class ViewController: UIViewController {
     }
     
     func move() {
+        //animateSegue()
         print("count: \(count)")
         imageView.image = UIImage(named: Util.sharedInstance.pictures[count])
         letterLabel.text = Util.sharedInstance.letters[count]
