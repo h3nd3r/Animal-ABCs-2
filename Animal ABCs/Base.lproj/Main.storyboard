@@ -74,7 +74,7 @@
                         <outlet property="rightArrowImageView" destination="Aak-9P-AKo" id="39e-Vo-Z4Y"/>
                         <outlet property="slideView" destination="sao-Ck-hp3" id="ehK-Ek-ria"/>
                         <outlet property="slideViewContainer" destination="sao-Ck-hp3" id="yBN-Kb-1Po"/>
-                        <segue destination="mwc-Jb-ZfV" kind="show" identifier="segue" id="73N-PD-wDu"/>
+                        <segue destination="mwc-Jb-ZfV" kind="custom" identifier="contractSegue" customClass="ContractSegue" customModule="Animal_ABCs" customModuleProvider="target" id="73N-PD-wDu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -194,7 +194,7 @@
                     <connections>
                         <outlet property="collectionView" destination="wA9-mO-u6B" id="3Tm-Co-BJV"/>
                         <outlet property="flowLayout" destination="lHV-hE-i0M" id="GCT-Bc-vqy"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="segueExpand" id="mEa-8S-h8Z"/>
+                        <segue destination="BYZ-38-t0r" kind="custom" identifier="expandSegue" customClass="ExpandSegue" customModule="Animal_ABCs" customModuleProvider="target" id="mEa-8S-h8Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yRq-MZ-npe" userLabel="First Responder" sceneMemberID="firstResponder"/>

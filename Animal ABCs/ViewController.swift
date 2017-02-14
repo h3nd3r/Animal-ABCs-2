@@ -118,14 +118,14 @@ class ViewController: UIViewController {
     @IBAction func tapMinimize(_ sender: Any) {
         print(#function)        
         Util.sharedInstance.stop(count: count)
-        performSegue(withIdentifier: "segue", sender: nil)
+        performSegue(withIdentifier: "contractSegue", sender: nil)
     }
     
     @IBAction func pinchGesture(_ sender: UIGestureRecognizer) {
         print(#function)
         if sender.state == UIGestureRecognizerState.ended {
             Util.sharedInstance.stop(count: count)    
-            performSegue(withIdentifier: "segue", sender: nil)
+            performSegue(withIdentifier: "contractSegue", sender: nil)
         }
     }
     

@@ -53,7 +53,7 @@ class CollectionViewController: UIViewController {
 extension CollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
-        performSegue(withIdentifier: "segueExpand", sender: indexPath.row)
+        performSegue(withIdentifier: "expandSegue", sender: indexPath.row)
     }
 }
 

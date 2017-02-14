@@ -17,6 +17,8 @@
 		1AD460B41E4EDBD500A2038D /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD460B31E4EDBD500A2038D /* Util.swift */; };
 		1AEB6D9A1E52556200CAEE79 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEB6D991E52556200CAEE79 /* View.xib */; };
 		1AEB6D9C1E5255EB00CAEE79 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEB6D9B1E5255EB00CAEE79 /* View.swift */; };
+		1AEB6DA21E528E5600CAEE79 /* ExpandSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEB6DA11E528E5600CAEE79 /* ExpandSegue.swift */; };
+		1AEB6DA41E529DD500CAEE79 /* ContractSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEB6DA31E529DD500CAEE79 /* ContractSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		1AD460B31E4EDBD500A2038D /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		1AEB6D991E52556200CAEE79 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		1AEB6D9B1E5255EB00CAEE79 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		1AEB6DA11E528E5600CAEE79 /* ExpandSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandSegue.swift; sourceTree = "<group>"; };
+		1AEB6DA31E529DD500CAEE79 /* ContractSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				1A067FE01E50D294003C63BC /* CollectionViewController.swift */,
 				1AB774371E2027FE00BE2FC4 /* Assets.xcassets */,
 				1A067FE41E5113A7003C63BC /* Main.storyboard */,
+				1AEB6DA11E528E5600CAEE79 /* ExpandSegue.swift */,
+				1AEB6DA31E529DD500CAEE79 /* ContractSegue.swift */,
 				1AEB6D991E52556200CAEE79 /* View.xib */,
 				1AEB6D9B1E5255EB00CAEE79 /* View.swift */,
 				1AB774391E2027FE00BE2FC4 /* LaunchScreen.storyboard */,
@@ -157,6 +163,8 @@
 				1AB774311E2027FE00BE2FC4 /* AppDelegate.swift in Sources */,
 				1A067FE31E5109B6003C63BC /* CollectionViewCell.swift in Sources */,
 				1AD460B41E4EDBD500A2038D /* Util.swift in Sources */,
+				1AEB6DA21E528E5600CAEE79 /* ExpandSegue.swift in Sources */,
+				1AEB6DA41E529DD500CAEE79 /* ContractSegue.swift in Sources */,
 				1AEB6D9C1E5255EB00CAEE79 /* View.swift in Sources */,
 				1A067FE11E50D294003C63BC /* CollectionViewController.swift in Sources */,
 			);
