@@ -11,11 +11,11 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var slideView: UIView!
+    @IBOutlet weak var slideViewContainer: UIView!
     @IBOutlet weak var leftArrowImageView: UIImageView!
     @IBOutlet weak var rightArrowImageView: UIImageView!
     @IBOutlet weak var dashImageView: UIImageView!
-    var mySlideView: View!
+    var slideView: View!
     
     var enableRepeatingAnimation = false
     var count: Int = 0
@@ -25,9 +25,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mySlideView = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options:nil)[0] as! View
-        mySlideView.update(count)
-        slideView.addSubview(mySlideView)
+        slideView = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options:nil)[0] as! View
+        slideView.update(count)
+        slideViewContainer.addSubview(slideView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -38,24 +38,6 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         print(#function)
         move(withAnimation: false, goingRight:false)
-    }
-    
-
-    func animateSegue() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let toViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-        //self.present(controller, animated: true, completion: nil)
-        self.transition(
-            from: self,
-            to: toViewController,
-            duration: 0.2,
-            options: UIViewAnimationOptions.transitionCrossDissolve,
-            animations: nil,
-            completion: { finished in
-                self.removeFromParentViewController()
-                toViewController.didMove(toParentViewController: self)
-                toViewController.view.frame = self.view.bounds
-        })
     }
     
     @IBAction func rightTap(_ sender: Any) {
@@ -75,25 +57,25 @@ class ViewController: UIViewController {
             let tmp = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options:nil)[0] as! View
             tmp.update(count)
             tmp.alpha = 0
-            tmp.frame = slideView.frame
-            slideView.addSubview(tmp)
+            tmp.frame = slideViewContainer.frame
+            slideViewContainer.addSubview(tmp)
             
             hideNav()
             timer.invalidate()
 
-            let travelDistance:CGFloat = slideView.bounds.size.width + 16
+            let travelDistance:CGFloat = slideViewContainer.bounds.size.width + 16
             let travel:CGAffineTransform = CGAffineTransform(translationX: right ? travelDistance : -travelDistance, y: 0)
             tmp.transform = travel.inverted()
             
             UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: [], animations: {
-                self.mySlideView.alpha = 0.0
-                self.mySlideView.transform = travel
+                self.slideView.alpha = 0.0
+                self.slideView.transform = travel
                 tmp.alpha = 1.0
                 tmp.transform = CGAffineTransform.identity
                 
             }, completion: { (finished: Bool) in
-                self.mySlideView.removeFromSuperview()
-                self.mySlideView = tmp
+                self.slideView.removeFromSuperview()
+                self.slideView = tmp
                 Util.sharedInstance.play(count: self.count)
                 self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.showNav), userInfo: nil, repeats: false)
             })

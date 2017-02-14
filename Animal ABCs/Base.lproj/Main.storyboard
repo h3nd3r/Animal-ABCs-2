@@ -73,6 +73,7 @@
                         <outlet property="leftArrowImageView" destination="6QC-i2-brA" id="vdR-jr-02k"/>
                         <outlet property="rightArrowImageView" destination="Aak-9P-AKo" id="39e-Vo-Z4Y"/>
                         <outlet property="slideView" destination="sao-Ck-hp3" id="ehK-Ek-ria"/>
+                        <outlet property="slideViewContainer" destination="sao-Ck-hp3" id="yBN-Kb-1Po"/>
                         <segue destination="mwc-Jb-ZfV" kind="show" identifier="segue" id="73N-PD-wDu"/>
                     </connections>
                 </viewController>
