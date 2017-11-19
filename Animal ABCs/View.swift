@@ -17,6 +17,7 @@ class View: UIView {
         picture.image = UIImage(named: Util.sharedInstance.pictures[count])
         letters.text = Util.sharedInstance.letters[count]
         animal.text = Util.sharedInstance.animals[count]
+      //animal.sizeToFit()
         backgroundColor = Util.sharedInstance.colors[count].hexColor
     }
 }

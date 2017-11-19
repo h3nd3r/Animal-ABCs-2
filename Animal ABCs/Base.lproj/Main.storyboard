@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,21 +29,24 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView hidden="YES" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left" translatesAutoresizingMaskIntoConstraints="NO" id="6QC-i2-brA" userLabel="left">
-                                <rect key="frame" x="24" y="262" width="92" height="142"/>
+                                <rect key="frame" x="24" y="301.5" width="47" height="63"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6QC-i2-brA" secondAttribute="height" multiplier="3:4" id="GOo-l0-pF5"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Yhj-QU-AnU" appends="YES" id="RCL-9E-ong"/>
                                 </connections>
                             </imageView>
                             <imageView hidden="YES" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-9P-AKo" userLabel="right">
-                                <rect key="frame" x="259" y="262" width="92" height="142"/>
+                                <rect key="frame" x="304" y="301.5" width="47" height="63"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="RRP-HC-FI5" appends="YES" id="JPU-9o-mv8"/>
                                 </connections>
                             </imageView>
                             <imageView hidden="YES" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dash" translatesAutoresizingMaskIntoConstraints="NO" id="gGt-JS-nTf" userLabel="dash">
-                                <rect key="frame" x="260" y="40" width="83" height="83"/>
+                                <rect key="frame" x="296" y="40" width="47" height="83"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="8KS-v7-yD9" appends="YES" id="fUI-gI-7nu"/>
@@ -52,14 +57,18 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="6QC-i2-brA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0au-eo-j7S"/>
+                            <constraint firstItem="6QC-i2-brA" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="4:32" id="4HX-4N-sxi"/>
                             <constraint firstItem="sao-Ck-hp3" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="5PG-oR-zdb"/>
                             <constraint firstItem="Aak-9P-AKo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8gk-ax-WK0"/>
                             <constraint firstItem="gGt-JS-nTf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="KRU-ze-Wng"/>
                             <constraint firstItem="6QC-i2-brA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="N6G-UE-62y"/>
                             <constraint firstItem="sao-Ck-hp3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="NVc-hG-Tnb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Aak-9P-AKo" secondAttribute="trailing" constant="8" id="YNJ-xf-WH2"/>
+                            <constraint firstItem="gGt-JS-nTf" firstAttribute="width" secondItem="6QC-i2-brA" secondAttribute="width" id="avx-C7-dbT"/>
                             <constraint firstItem="sao-Ck-hp3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bHn-Tz-JMd"/>
+                            <constraint firstItem="Aak-9P-AKo" firstAttribute="height" secondItem="6QC-i2-brA" secondAttribute="height" id="dgK-bj-rYI"/>
                             <constraint firstItem="sao-Ck-hp3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dqB-nd-Sjc"/>
+                            <constraint firstItem="Aak-9P-AKo" firstAttribute="width" secondItem="6QC-i2-brA" secondAttribute="width" id="hzE-1Z-9LK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gGt-JS-nTf" secondAttribute="trailing" constant="16" id="uJP-zH-cJZ"/>
                         </constraints>
                         <connections>
@@ -72,7 +81,6 @@
                         <outlet property="dashImageView" destination="gGt-JS-nTf" id="e6P-EV-Cwn"/>
                         <outlet property="leftArrowImageView" destination="6QC-i2-brA" id="vdR-jr-02k"/>
                         <outlet property="rightArrowImageView" destination="Aak-9P-AKo" id="39e-Vo-Z4Y"/>
-                        <outlet property="slideView" destination="sao-Ck-hp3" id="ehK-Ek-ria"/>
                         <outlet property="slideViewContainer" destination="sao-Ck-hp3" id="yBN-Kb-1Po"/>
                         <segue destination="mwc-Jb-ZfV" kind="custom" identifier="contractSegue" customClass="ContractSegue" customModule="Animal_ABCs" customModuleProvider="target" id="73N-PD-wDu"/>
                     </connections>

@@ -55,7 +55,6 @@ class Util: UIView {
 
         players[count]?.prepareToPlay()
         players[count]?.play()
-
     }
     
     func cellSize() -> CGSize {
@@ -63,19 +62,6 @@ class Util: UIView {
         let height = UIScreen.main.bounds.size.height
 
         print("\(#function) width: \(width), height:\(height)");
-        /*
-        if(width > height) // landscape
-        {
-            let size = CGSize( (width - width/10)/3 , (height - height/10)/3)
-            return size;
-        }
-        else // portrait
-        {
-            let size = CGSize( (width - width/10)/3 , (height - height/10)/3)
-            return size;
-        }*/
-        
-        //return CGSize(width: (width - width/10)/3, height: (height - height/10)/3)
         return CGSize(width: 100, height: 100)
     }
 }
@@ -86,7 +72,7 @@ extension String {
         var int = UInt32()
         Scanner(string: hex).scanHexInt32(&int)
         let a, r, g, b: UInt32
-        switch hex.characters.count {
+        switch hex.count {
         case 3: // RGB (12-bit)
             (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
         case 6: // RGB (24-bit)

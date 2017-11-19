@@ -15,24 +15,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftArrowImageView: UIImageView!
     @IBOutlet weak var rightArrowImageView: UIImageView!
     @IBOutlet weak var dashImageView: UIImageView!
-    var slideView: View!
+    var slideView: View?
     
     var enableRepeatingAnimation = false
     var count: Int = 0
     private var slide: Int = 0
     var timer = Timer()
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        slideView = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options:nil)[0] as! View
-        slideView.update(count)
-        slideViewContainer.addSubview(slideView)
+      slideView = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options: nil).first as? View
+        slideView?.update(count)
+        if let sliderView = slideView {
+          sliderView.translatesAutoresizingMaskIntoConstraints = false
+          slideViewContainer.addSubview(sliderView)
+          slideView?.widthAnchor.constraint(equalTo: slideViewContainer.widthAnchor).isActive = true
+          slideView?.centerXAnchor.constraint(equalTo: slideViewContainer.centerXAnchor).isActive = true
+          slideView?.heightAnchor.constraint(equalTo: slideViewContainer.heightAnchor).isActive = true
+          slideView?.centerYAnchor.constraint(equalTo: slideViewContainer.centerYAnchor).isActive = true
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         print(#function)
-        //move()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,7 +59,7 @@ class ViewController: UIViewController {
         print("count: \(count)")
 
         if (animate) {
-            let tmp = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options:nil)[0] as! View
+            let tmp = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options:nil).first as! View
             tmp.update(count)
             tmp.alpha = 0
             tmp.frame = slideViewContainer.frame
@@ -68,13 +73,13 @@ class ViewController: UIViewController {
             tmp.transform = travel.inverted()
             
             UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.5, options: [], animations: {
-                self.slideView.alpha = 0.0
-                self.slideView.transform = travel
+                self.slideView?.alpha = 0.0
+                self.slideView?.transform = travel
                 tmp.alpha = 1.0
                 tmp.transform = CGAffineTransform.identity
                 
             }, completion: { (finished: Bool) in
-                self.slideView.removeFromSuperview()
+                self.slideView?.removeFromSuperview()
                 self.slideView = tmp
                 Util.sharedInstance.play(count: self.count)
                 self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.showNav), userInfo: nil, repeats: false)
@@ -137,7 +142,7 @@ class ViewController: UIViewController {
         print(#function)
     }
     
-    func animateNav() {
+    @objc func animateNav() {
         self.leftArrowImageView.alpha = 0.1
         self.rightArrowImageView.alpha = 0.1
         self.dashImageView.alpha = 0.1
@@ -165,7 +170,7 @@ class ViewController: UIViewController {
         enableRepeatingAnimation = false
     }
     
-    func showNav() {
+    @objc func showNav() {
         leftArrowImageView.isHidden = false
         rightArrowImageView.isHidden = false
         dashImageView.isHidden = false
