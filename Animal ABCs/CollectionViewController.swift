@@ -18,21 +18,16 @@ class CollectionViewController: UIViewController {
 
         collectionView.dataSource = self
         collectionView.delegate = self
-
-//        flowLayout.minimumLineSpacing = 0
-//        flowLayout.minimumInteritemSpacing = 0
-//        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 10)
-        
     }
     
     override func viewWillLayoutSubviews() {
         print(#function)
-        flowLayout.invalidateLayout()
+        //flowLayout.invalidateLayout()
     }
     
     override var shouldAutorotate: Bool {
 //        print(#function)
-//        flowLayout.invalidateLayout()
+        flowLayout.invalidateLayout()
         return true
     }
     
@@ -47,7 +42,24 @@ class CollectionViewController: UIViewController {
         let viewController:ViewController = segue.destination as! ViewController
         viewController.count = sender as! Int
     }
-    
+  
+  func findCorrectWidth() -> CGFloat {
+    var width = view.bounds.size.width
+    if #available(iOS 11, *) {
+      let guide = view.safeAreaLayoutGuide
+      width = guide.layoutFrame.width
+    }
+    return width
+  }
+  
+  func findCorrectHeight() -> CGFloat {
+    var height = view.bounds.size.height
+    if #available(iOS 11, *) {
+      let guide = view.safeAreaLayoutGuide
+      height = guide.layoutFrame.height
+    }
+    return height
+  }
 }
 
 extension CollectionViewController: UICollectionViewDelegate {
@@ -60,25 +72,25 @@ extension CollectionViewController: UICollectionViewDelegate {
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print(#function)
-        let width = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height
-        let size =  CGSize(width: (width - width/10)/3, height: (height - height/10)/3)
+        //print(#function)
+        let width = findCorrectWidth()
+        let height = findCorrectHeight()
+        let size =  CGSize(width: floor((width - width/10)/3), height: floor((height - height/10)/3))
         flowLayout.itemSize = size
         return size
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         print(#function)
-        let width = UIScreen.main.bounds.size.width
+        let width = findCorrectWidth()
         let tmp = (width - flowLayout.itemSize.width*3)/6
         print("setting insets to: \(tmp)")
         return UIEdgeInsetsMake(tmp, tmp, tmp, tmp)
     }
-    
+  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         print(#function)
-        let width = UIScreen.main.bounds.size.width
+        let width = findCorrectWidth()
         let space = ((width - flowLayout.itemSize.width*3)/6)*2
         print("setting line space: \(space)")
         return space

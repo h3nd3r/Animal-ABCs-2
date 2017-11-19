@@ -24,7 +24,18 @@ class ViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      slideView = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options: nil).first as? View
+      
+      var guide = view.layoutMarginsGuide
+      if #available(iOS 11, *) {
+        guide = view.safeAreaLayoutGuide
+      }
+      slideViewContainer.translatesAutoresizingMaskIntoConstraints = false
+      slideViewContainer.leadingAnchor.constraint(equalTo: guide.leadingAnchor).isActive = true
+      slideViewContainer.trailingAnchor.constraint(equalTo: guide.trailingAnchor).isActive = true
+      slideViewContainer.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
+      slideViewContainer.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
+      
+        slideView = UINib(nibName: "View", bundle: nil).instantiate(withOwner: View(), options: nil).first as? View
         slideView?.update(count)
         if let sliderView = slideView {
           sliderView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,11 +75,16 @@ class ViewController: UIViewController {
             tmp.alpha = 0
             tmp.frame = slideViewContainer.frame
             slideViewContainer.addSubview(tmp)
-            
+//            slideView?.translatesAutoresizingMaskIntoConstraints = false
+//            slideView?.widthAnchor.constraint(equalTo: slideViewContainer.widthAnchor).isActive = true
+//            slideView?.centerXAnchor.constraint(equalTo: slideViewContainer.centerXAnchor).isActive = true
+//            slideView?.heightAnchor.constraint(equalTo: slideViewContainer.heightAnchor).isActive = true
+//            slideView?.centerYAnchor.constraint(equalTo: slideViewContainer.centerYAnchor).isActive = true
+          
             hideNav()
             timer.invalidate()
 
-            let travelDistance:CGFloat = slideViewContainer.bounds.size.width + 16
+            let travelDistance:CGFloat = UIScreen.main.bounds.width + 16
             let travel:CGAffineTransform = CGAffineTransform(translationX: right ? travelDistance : -travelDistance, y: 0)
             tmp.transform = travel.inverted()
             

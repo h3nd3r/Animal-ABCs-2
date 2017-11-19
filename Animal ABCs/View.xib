@@ -36,14 +36,14 @@
             <color key="backgroundColor" red="0.00154062768" green="0.53080481290000003" blue="0.0027086061889999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="QVA-tM-Bmi" firstAttribute="width" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="width" constant="-32" id="2LS-3T-jiG"/>
-                <constraint firstItem="QVA-tM-Bmi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="7YZ-Yr-zgF"/>
                 <constraint firstItem="1ey-Ek-Kfg" firstAttribute="width" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="width" constant="-32" id="D38-wH-c5W"/>
-                <constraint firstAttribute="trailing" secondItem="1ey-Ek-Kfg" secondAttribute="trailing" constant="16" id="GUg-L5-Ht6"/>
+                <constraint firstAttribute="bottom" secondItem="1ey-Ek-Kfg" secondAttribute="bottom" constant="20" id="GC6-1t-8uI"/>
                 <constraint firstItem="FWc-3g-Lk3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="H4y-SN-bhj"/>
+                <constraint firstItem="QVA-tM-Bmi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Imb-ok-1Ke"/>
+                <constraint firstItem="QVA-tM-Bmi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="LGy-Xa-XXZ"/>
+                <constraint firstAttribute="trailing" secondItem="1ey-Ek-Kfg" secondAttribute="trailing" constant="16" id="Lpb-2s-f7u"/>
                 <constraint firstItem="FWc-3g-Lk3" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="RzP-9I-h9R"/>
-                <constraint firstAttribute="bottom" secondItem="1ey-Ek-Kfg" secondAttribute="bottom" constant="20" symbolic="YES" id="WoM-my-jGr"/>
                 <constraint firstItem="FWc-3g-Lk3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dkc-Ez-BY5"/>
-                <constraint firstItem="QVA-tM-Bmi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="laF-09-rb4"/>
                 <constraint firstItem="FWc-3g-Lk3" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="rcm-54-Gua"/>
             </constraints>
             <connections>
